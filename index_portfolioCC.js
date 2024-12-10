@@ -35,25 +35,6 @@ about.addEventListener("click", (event) => {
 });
 
 
-const portfolio= document.getElementById("about-link");
-
-// Add event listener for "about-link"
-portfolio.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default link behavior
-
-  // Circle expand animation
-  loader.style.clipPath = "circle(150% at 50% 50%)";
-
-  // Shining effect
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    // Redirect to the next page after fade-out
-    setTimeout(() => {
-      window.location.href = "https://linktr.ee/feliciatiffanyh";
-    }); 
-  }, 2000); // Wait for circle expand
-});
 
 
 const contact= document.getElementById("contact-link");

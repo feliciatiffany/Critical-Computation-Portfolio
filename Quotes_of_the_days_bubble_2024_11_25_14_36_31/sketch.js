@@ -24,6 +24,7 @@ let fanyquote;
 
 function setup() {
   createCanvas(600, 600);
+  canvas.parent('p5-container');s
   background(0);
   
   // Create 7 simple circles -- 

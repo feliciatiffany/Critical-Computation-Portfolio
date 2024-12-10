@@ -216,12 +216,14 @@ article {
     text-decoration: none;
 }
 
+#p5-container {
+    margin-bottom: 50px; 
+}
 
-
-canvas{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+canvas {
+    display: block; 
+    margin: 0 auto; 
+    margin-bottom: 50px; 
 }
 
  

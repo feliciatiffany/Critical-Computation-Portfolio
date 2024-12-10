@@ -153,7 +153,8 @@ let showNextCode = false;
 
 function setup() {
   //MAIN STAGE
-  createCanvas(600, 400); 
+  createCanvas(600, 400);
+  canvas.parent('p5-container'); 
   maze = new Maze(20, 30); 
   finishedmaze = new finishedMaze(20, 30); 
   player = new Player(maze.cellSize / 2, maze.cellSize / 2); // Start at top left
