@@ -1,100 +1,39 @@
-// white animation
+// Get references to the overlay and loader
 const whiteOverlay = document.getElementById('white-overlay');
+const loader = document.getElementById("loader");
 
-
+// Fade out the white overlay on page load
 window.addEventListener('load', () => {
   setTimeout(() => {
     whiteOverlay.style.opacity = '0'; // Fade out
     setTimeout(() => {
       whiteOverlay.style.display = 'none'; 
-    }, 1500); //fade-out duration
-  }); 
+    }, 3000); // Duration matches the transition
+  }, 500); // Delay before starting fade-out (optional)
 });
 
+// Utility function for navigation animations
+function navigateWithAnimation(link, targetUrl) {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
 
-const loader = document.getElementById("loader");
-const home = document.getElementById("home-link");
+    // Circle expand animation
+    loader.style.clipPath = "circle(150% at 50% 50%)";
 
-// Add event listener for "about-link"
-home.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default link behavior
-
-  // Circle expand animation
-  loader.style.clipPath = "circle(150% at 50% 50%)";
-
-  // Shining effect
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    // Redirect to the next page after fade-out
+    // Fade out after animation
     setTimeout(() => {
-      window.location.href = "index.html";
-    });
-  }, 2000); // Wait for circle expand
-});
+      loader.style.opacity = "0";
 
+      // Redirect to the target page
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 500); // Additional delay for fade-out
+    }, 2000); // Wait for circle expand animation
+  });
+}
 
-
-const about = document.getElementById("about-link");
-
-// Add event listener for "about-link"
-about.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default link behavior
-
-  // Circle expand animation
-  loader.style.clipPath = "circle(150% at 50% 50%)";
-
-  // Shining effect
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    // Redirect to the next page after fade-out
-    setTimeout(() => {
-      window.location.href = "portfolio_about.html";
-    });
-  }, 2000); // Wait for circle expand
-});
-
-
-const portfolio = document.getElementById("portfolio-link");
-
-// Add event listener for "about-link"
-portfolio.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default link behavior
-
-  // Circle expand animation
-  loader.style.clipPath = "circle(150% at 50% 50%)";
-
-  // Shining effect
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    // Redirect to the next page after fade-out
-    setTimeout(() => {
-      window.location.href = "https://linktr.ee/feliciatiffanyh";
-    }); 
-  }, 2000); // Wait for circle expand
-});
-
-
-const contact= document.getElementById("contact-link");
-
-// Add event listener for "about-link"
-contact.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent default link behavior
-
-  // Circle expand animation
-  loader.style.clipPath = "circle(150% at 50% 50%)";
-
-  // Shining effect
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    // Redirect to the next page after fade-out
-    setTimeout(() => {
-      window.location.href = "contact.html";
-    }); 
-  }, 2000); // Wait for circle expand
-});
-
-
+// Attach navigation animations to links
+navigateWithAnimation(document.getElementById("home-link"), "index.html");
+navigateWithAnimation(document.getElementById("about-link"), "portfolio_about.html");
+navigateWithAnimation(document.getElementById("portfolio-link"), "https://linktr.ee/feliciatiffanyh");
+navigateWithAnimation(document.getElementById("contact-link"), "contact.html");
